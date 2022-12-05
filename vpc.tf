@@ -1,8 +1,8 @@
-1: provider "aws" {
-  region  = "ap-south-1"
+#provider "aws" {
+ # region  = "ap-south-1"
   #acess_key = "AKIAU3ZWQXHCEMZMSNG4"
   #secret_key = "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"
-}
+#}
 
 resource "aws_vpc" "vpc" {
   cidr_block       = "192.168.0.0/16"
