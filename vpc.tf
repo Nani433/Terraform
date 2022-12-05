@@ -14,7 +14,7 @@ resource "aws_vpc" "vpc" {
 }
 
 resource "aws_subnet" "pub" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = "192.168.1.0/24"
 
   tags = {
@@ -23,7 +23,7 @@ resource "aws_subnet" "pub" {
 }
 
 resource "aws_subnet" "pri" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = "192.168.3.0/24"
 
   tags = {
@@ -94,7 +94,7 @@ resource "aws_route_table_association" "as_2" {
 resource "aws_security_group" "sg" {
   name        = "first-SG"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
     description      = "TLS from VPC"
